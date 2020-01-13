@@ -1,0 +1,16 @@
+version: '2'
+services:
+  nginx:
+    build: ./docker/nginx
+    ports:
+      - '8080:80'
+    depends_on:
+      - php
+    volumes:
+      - .:/opt/work
+    container_name: teste_router_nginx
+  php:
+    build: ./docker/php
+    volumes:
+      - .:/opt/work
+    container_name: teste_router_php
